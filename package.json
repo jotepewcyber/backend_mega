@@ -1,0 +1,16 @@
+{
+  "name": "backend_mega_project",
+  "version": "1.0.0",
+  "description": "Start of backend mega project",
+  "keywords": [
+    "javascript",
+    "backend"
+  ],
+  "license": "ISC",
+  "author": "Arunuoday Tiwari",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
