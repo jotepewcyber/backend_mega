@@ -5,8 +5,21 @@ import {DB_NAME} from "./constants.js";
 
 import connectDB from "./db/index.js";
 
-dotenv.config();
+dotenv.config();  //loads all environemt varibales from .env file into process.env
+const PORT=process.env.PORT || 8000;
 connectDB()
+.then(()=>{
+    app.on("error",(error)=>{
+console.log("ERROR:" ,error)
+ throw error;
+}) 
+    app.listen(PORT,()=>{
+        console.log(`App is listening on PORT ${PORT}`);
+    })
+})
+.catch((err)=>{
+    console.error("DB connection failed", err);
+})
 
 //THIS IS ONE APPROACH
 // import express from "express";
