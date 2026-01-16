@@ -1,5 +1,5 @@
 class ApiError extends Error {
-constructor(statusCode,message="Something went wrong",errors=[],stack=""){
+constructor(statusCode,message="Something went wrong in APIError",errors=[],stack=""){
 super(message); //calls constructor of parent class ie.Error witj updated message
 this.statusCode=statusCode;
 this.data=null

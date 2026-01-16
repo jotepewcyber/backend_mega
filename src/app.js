@@ -17,4 +17,13 @@ app.use(express.urlencoded({limit:"16kb"})); //get same data irrespective of enc
 app.use(express.static("public")); //middleware to let browser access static files like images,etc directly from public folder
 app.use(cookieParser()); //middleware to let server read cookies from user's browser
 
-export default app;
+
+//importing routes
+import userRouter from "./routes/user.routes.js";
+
+//routes declaration
+app.use("/api/v1/users",userRouter)
+
+
+
+export {app};
