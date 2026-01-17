@@ -22,7 +22,9 @@ const response=await cloudinary.uploader
            }
        )
 
-       console.log("File uploaded on cloudinary successfully",response.url)
+      // console.log("File uploaded on cloudinary successfully",response.url)
+      
+      fs.unlinkSync(localFilePath); //delete file from local server after uploading to cloudinary
        return response;
        //this response has multiple fields like response.url,public_id,color,created_at,etc
 }

@@ -33,7 +33,7 @@ avatar:{
         required:true,
     },
 
-    coverImaqge:{
+    coverImage:{
         type:String,//cloudinary url
     },
 
@@ -55,16 +55,17 @@ avatar:{
 
 userSchema.pre("save", async function(next) {
     if(this.isModified("password"))
-    this.password=bcrypt.hash(this.password,10)
-         next();
+    this.password=await bcrypt.hash(this.password,10)
+        //  next(); ERROR--> next() is not a function
 }) 
 
 userSchema.methods.isPasswordCorrect=async function(password){
-    bcrypt.compare(password,this.password)
+   return await bcrypt.compare(password,this.password)
 }
 
 userSchema.methods.generateAccessToken=function(){
-    jwt.sign({
+    //GAVE ERROR-->WAS NOT RETURNING ACCESSTOKEN
+   return jwt.sign({
         _id:this.id,
         username:this.username,
         email:this.email,

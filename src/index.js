@@ -1,11 +1,12 @@
 // require("dotenv").config();   one way
-import dotenv from "dotenv"; 
+import "./env.js";  //another way to load env variables from .env file
 import mongoose from "mongoose";
 import {DB_NAME} from "./constants.js";
 import {app} from "./app.js";
 import connectDB from "./db/index.js";
 
-dotenv.config();  //loads all environemt varibales from .env file into process.env
+
+
 const PORT=process.env.PORT || 8000;
 connectDB()
 .then(()=>{

@@ -14,7 +14,7 @@ const storage = multer.diskStorage(
   //if no destination is given, multer uses temporary storage folder of OS to save files
   filename: function (req, file, cb) {
     
-    cb(null, file.originalname)
+    cb(null, file.originalname);
     //functionality upgrade here: to avoid name clash, we can add timestamp to original name
   //  though file remains here for very tiny millisecind then we upload it to cloudinary
   }
